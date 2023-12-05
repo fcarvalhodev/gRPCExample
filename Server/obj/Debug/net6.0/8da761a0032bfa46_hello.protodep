@@ -1,0 +1,2 @@
+gRPC_Objects/Hello.cs \
+gRPC_Objects/HelloGrpc.cs: ../protos/hello.proto

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "P0m9WoUP5kqDODj4cPFKq8p92XVc4X3vM78Ej5GwbKClfgi/C9WeEIoYdxLUa9I3Dmw41cr8szigtTMCgIgDbQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\dti Digital\\source\\repos\\gRPC_Demo\\gRPC_Basics\\Server\\Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dti Digital\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
+    "C:\\Users\\dti Digital\\.nuget\\packages\\grpc\\2.46.6\\grpc.2.46.6.nupkg.sha512",
+    "C:\\Users\\dti Digital\\.nuget\\packages\\grpc.core\\2.46.6\\grpc.core.2.46.6.nupkg.sha512",
+    "C:\\Users\\dti Digital\\.nuget\\packages\\grpc.core.api\\2.46.6\\grpc.core.api.2.46.6.nupkg.sha512",
+    "C:\\Users\\dti Digital\\.nuget\\packages\\grpc.tools\\2.46.6\\grpc.tools.2.46.6.nupkg.sha512",
+    "C:\\Users\\dti Digital\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
