@@ -18,7 +18,8 @@ namespace Server
             gRPCServer = new Grpc.Core.Server()
             {
                 Ports = { new ServerPort("localhost", 7777, ServerCredentials.Insecure) },
-                Services = { HelloService.BindService(new HelloServiceImpl()) }
+                Services = { HelloService.BindService(new HelloServiceImpl()),
+                MathsService.BindService(new MathsServicesImpl()) }
             };
 
             try

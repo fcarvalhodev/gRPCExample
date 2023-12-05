@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message FactoriaRequest {
+	int32 value = 1;
+}
+
+message FactoriaResponse {
+	int32 value = 1;
+	int64 result = 2;
+}
+
+service MathsService {
+	rpc Factorial(FactoriaRequest) returns (stream FactoriaResponse);
+}
