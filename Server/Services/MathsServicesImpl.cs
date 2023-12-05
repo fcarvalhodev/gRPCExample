@@ -22,5 +22,24 @@ namespace Server.Services
 
             await Task.Delay(1000);
         }
+
+        public override async Task<ComputedAverageResponse> Average(IAsyncStreamReader<ComputedAverageRequest> requestStream,
+            ServerCallContext context)
+        {
+            int count = 0;
+            float total = 0;
+
+            while (await requestStream.MoveNext())
+            {
+                count ++;
+                total += requestStream.Current.Value;
+            }
+
+            return new ComputedAverageResponse
+            {
+                Result = total / count
+            };
+        }
+
     }
 }

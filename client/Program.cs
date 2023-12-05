@@ -38,11 +38,32 @@ namespace client
                 //Console.WriteLine(response.Message);
 
                 var client = new MathsService.MathsServiceClient(channel);
-                var response = client.Factorial(new FactoriaRequest { Value = 10 });
-                while (await response.ResponseStream.MoveNext())
+
+                //var response = client.Factorial(new FactoriaRequest { Value = 10 });
+                //while (await response.ResponseStream.MoveNext())
+                //{
+                //    Console.WriteLine($"Factorial of {response.ResponseStream.Current.Value} is equals to {response.ResponseStream.Current.Result}");
+                //}
+
+                var average = client.Average();
+                Console.WriteLine("Write the numbers you want the average");
+                var number = Console.ReadLine();
+                while(number != "q")
                 {
-                    Console.WriteLine($"Factorial of {response.ResponseStream.Current.Value} is equals to {response.ResponseStream.Current.Result}");
+                    if(int.TryParse(number, out var n))
+                    {
+                        await average.RequestStream.WriteAsync(new ComputedAverageRequest
+                        {
+                            Value = n
+                        });
+                    }
+                    number = Console.ReadLine();
                 }
+                    
+                await average.RequestStream.CompleteAsync();
+
+                var result = await average;
+                Console.WriteLine("Result is : " + result.Result.ToString(".0000"));
 
                 Console.ReadLine();
             }

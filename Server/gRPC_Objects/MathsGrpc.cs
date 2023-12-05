@@ -48,6 +48,10 @@ public static partial class MathsService
   static readonly grpc::Marshaller<global::FactoriaRequest> __Marshaller_FactoriaRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::FactoriaRequest.Parser));
   [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
   static readonly grpc::Marshaller<global::FactoriaResponse> __Marshaller_FactoriaResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::FactoriaResponse.Parser));
+  [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+  static readonly grpc::Marshaller<global::ComputedAverageRequest> __Marshaller_ComputedAverageRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ComputedAverageRequest.Parser));
+  [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+  static readonly grpc::Marshaller<global::ComputedAverageResponse> __Marshaller_ComputedAverageResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::ComputedAverageResponse.Parser));
 
   [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
   static readonly grpc::Method<global::FactoriaRequest, global::FactoriaResponse> __Method_Factorial = new grpc::Method<global::FactoriaRequest, global::FactoriaResponse>(
@@ -56,6 +60,14 @@ public static partial class MathsService
       "Factorial",
       __Marshaller_FactoriaRequest,
       __Marshaller_FactoriaResponse);
+
+  [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+  static readonly grpc::Method<global::ComputedAverageRequest, global::ComputedAverageResponse> __Method_Average = new grpc::Method<global::ComputedAverageRequest, global::ComputedAverageResponse>(
+      grpc::MethodType.ClientStreaming,
+      __ServiceName,
+      "Average",
+      __Marshaller_ComputedAverageRequest,
+      __Marshaller_ComputedAverageResponse);
 
   /// <summary>Service descriptor</summary>
   public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -67,8 +79,27 @@ public static partial class MathsService
   [grpc::BindServiceMethod(typeof(MathsService), "BindService")]
   public abstract partial class MathsServiceBase
   {
+    /// <summary>
+    ///Stream do server para o client
+    /// </summary>
+    /// <param name="request">The request received from the client.</param>
+    /// <param name="responseStream">Used for sending responses back to the client.</param>
+    /// <param name="context">The context of the server-side call handler being invoked.</param>
+    /// <returns>A task indicating completion of the handler.</returns>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public virtual global::System.Threading.Tasks.Task Factorial(global::FactoriaRequest request, grpc::IServerStreamWriter<global::FactoriaResponse> responseStream, grpc::ServerCallContext context)
+    {
+      throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+    }
+
+    /// <summary>
+    ///Stream do client para o server
+    /// </summary>
+    /// <param name="requestStream">Used for reading requests from the client.</param>
+    /// <param name="context">The context of the server-side call handler being invoked.</param>
+    /// <returns>The response to send back to the client (wrapped by a task).</returns>
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    public virtual global::System.Threading.Tasks.Task<global::ComputedAverageResponse> Average(grpc::IAsyncStreamReader<global::ComputedAverageRequest> requestStream, grpc::ServerCallContext context)
     {
       throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
     }
@@ -102,15 +133,51 @@ public static partial class MathsService
     {
     }
 
+    /// <summary>
+    ///Stream do server para o client
+    /// </summary>
+    /// <param name="request">The request to send to the server.</param>
+    /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+    /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+    /// <param name="cancellationToken">An optional token for canceling the call.</param>
+    /// <returns>The call object.</returns>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public virtual grpc::AsyncServerStreamingCall<global::FactoriaResponse> Factorial(global::FactoriaRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
     {
       return Factorial(request, new grpc::CallOptions(headers, deadline, cancellationToken));
     }
+    /// <summary>
+    ///Stream do server para o client
+    /// </summary>
+    /// <param name="request">The request to send to the server.</param>
+    /// <param name="options">The options for the call.</param>
+    /// <returns>The call object.</returns>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public virtual grpc::AsyncServerStreamingCall<global::FactoriaResponse> Factorial(global::FactoriaRequest request, grpc::CallOptions options)
     {
       return CallInvoker.AsyncServerStreamingCall(__Method_Factorial, null, options, request);
+    }
+    /// <summary>
+    ///Stream do client para o server
+    /// </summary>
+    /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+    /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+    /// <param name="cancellationToken">An optional token for canceling the call.</param>
+    /// <returns>The call object.</returns>
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    public virtual grpc::AsyncClientStreamingCall<global::ComputedAverageRequest, global::ComputedAverageResponse> Average(grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+    {
+      return Average(new grpc::CallOptions(headers, deadline, cancellationToken));
+    }
+    /// <summary>
+    ///Stream do client para o server
+    /// </summary>
+    /// <param name="options">The options for the call.</param>
+    /// <returns>The call object.</returns>
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    public virtual grpc::AsyncClientStreamingCall<global::ComputedAverageRequest, global::ComputedAverageResponse> Average(grpc::CallOptions options)
+    {
+      return CallInvoker.AsyncClientStreamingCall(__Method_Average, null, options);
     }
     /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
@@ -126,7 +193,8 @@ public static partial class MathsService
   public static grpc::ServerServiceDefinition BindService(MathsServiceBase serviceImpl)
   {
     return grpc::ServerServiceDefinition.CreateBuilder()
-        .AddMethod(__Method_Factorial, serviceImpl.Factorial).Build();
+        .AddMethod(__Method_Factorial, serviceImpl.Factorial)
+        .AddMethod(__Method_Average, serviceImpl.Average).Build();
   }
 
   /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -137,6 +205,7 @@ public static partial class MathsService
   public static void BindService(grpc::ServiceBinderBase serviceBinder, MathsServiceBase serviceImpl)
   {
     serviceBinder.AddMethod(__Method_Factorial, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::FactoriaRequest, global::FactoriaResponse>(serviceImpl.Factorial));
+    serviceBinder.AddMethod(__Method_Average, serviceImpl == null ? null : new grpc::ClientStreamingServerMethod<global::ComputedAverageRequest, global::ComputedAverageResponse>(serviceImpl.Average));
   }
 
 }

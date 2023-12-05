@@ -4,11 +4,20 @@ message FactoriaRequest {
 	int32 value = 1;
 }
 
+message ComputedAverageRequest {
+	int32 value = 1;
+}
+
 message FactoriaResponse {
 	int32 value = 1;
 	int64 result = 2;
 }
 
+message ComputedAverageResponse {
+	float result = 1;
+}
+
 service MathsService {
-	rpc Factorial(FactoriaRequest) returns (stream FactoriaResponse);
+	rpc Factorial(FactoriaRequest) returns (stream FactoriaResponse); //Stream do server para o client
+	rpc Average(stream ComputedAverageRequest) returns (ComputedAverageResponse); //Stream do client para o server
 }
