@@ -22,12 +22,19 @@ namespace client
                 Console.WriteLine("The client connected successfuly to the server");
 
                 var client = new HelloService.HelloServiceClient(channel);
-                var response = await client.WelcomeAsync(new HelloRequest
+                var request = new HelloRequest
                 {
                     FirstName = "Fabio",
-                    LastName = "Carvalho"
+                    LastName = "Carvalho",
+                };
+
+                request.Children.AddRange(new[]
+                {
+                    new Child { FirstName = "Batman"},
+                    new Child { FirstName = "Clark"}
                 });
 
+                var response = await client.WelcomeAsync(request);
                 Console.WriteLine(response.Message);
 
                 Console.ReadLine();

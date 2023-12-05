@@ -1,9 +1,14 @@
 syntax = "proto3"; //indica que a versão do proto que vamos usar é a 3.
 
+message Child {
+	string firstName = 1;
+}
+
 //Pensar nas mensagens no proto como se fossem Models.
 message HelloRequest {
 	string firstName = 1;
 	string lastName = 2;
+	repeated Child children = 3; //Collection
 }
 
 message HelloResponse {
