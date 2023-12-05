@@ -9,7 +9,8 @@ namespace Server.Services
 
         public override Task<HelloResponse> Welcome(HelloRequest request, ServerCallContext context)
         {
-            return base.Welcome(request, context);
+            string message = $"{request.FirstName} {request.LastName}";
+            return Task.FromResult(new HelloResponse { Message = message });
         }
     }
 }

@@ -20,6 +20,16 @@ namespace client
             {
                 await channel.ConnectAsync();
                 Console.WriteLine("The client connected successfuly to the server");
+
+                var client = new HelloService.HelloServiceClient(channel);
+                var response = await client.WelcomeAsync(new HelloRequest
+                {
+                    FirstName = "Fabio",
+                    LastName = "Carvalho"
+                });
+
+                Console.WriteLine(response.Message);
+
                 Console.ReadLine();
             }
             catch (Exception ex)

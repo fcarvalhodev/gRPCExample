@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using Server.Services;
 
 namespace Server
 {
@@ -17,7 +18,7 @@ namespace Server
             gRPCServer = new Grpc.Core.Server()
             {
                 Ports = { new ServerPort("localhost", 7777, ServerCredentials.Insecure) },
-                Services = { }
+                Services = { HelloService.BindService(new HelloServiceImpl()) }
             };
 
             try
